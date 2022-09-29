@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def main_slovar(request):
+    return render(request, 'slovar/main_slovar.html')
