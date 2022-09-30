@@ -1,0 +1,31 @@
+*{
+    color: black;
+}
+
+.message-box {
+    padding: 20px 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 30vw;
+    height: auto;
+    border-radius: 15px;
+}
+.messages {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.message-error{
+    background-color: rgb(255, 0, 0, 0.7);
+}
+.message-success{
+    background-color: green;
+}
+.message-info{
+    background-color: yellow;
+}
+.message-warning{
+    background-color: yellow;
+}

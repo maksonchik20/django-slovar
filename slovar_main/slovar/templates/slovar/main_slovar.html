@@ -1,12 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Онлайн словарь</title>
-</head>
-<body>
-    Hello world
-</body>
-</html>
+{% extends "slovar/base.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+{% block body %}
+    {% if method == 'GET' %}  
+        <form action="{% url 'main_slovar' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="text">
+            <input type="submit">
+        </form>
+    {% elif method == 'POST' %}
+        <br>
+        <br>
+
+            {% if slovar.main %}
+
+                <strong>Слово:</strong> {{slovar.text}}
+
+                <br>
+                <br>
+
+                <strong>Синонимы: </strong>
+                <ul>
+                    {% for el in slovar.main %}
+                        <li>
+                            {{ el.text }}
+                        </li>
+                        
+                        {% for syn_el in el.syn %}
+                            <li>
+                                {{ syn_el }}
+                            </li>
+                        {% endfor %}
+                            
+                    {% endfor %}
+                </ul>
+            {% else %}
+                Слово "{{slovar.text}}" не найдено
+            {% endif %}
+    {% endif %}
+
+{% endblock body %}
+    
