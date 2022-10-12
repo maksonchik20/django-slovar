@@ -34,4 +34,4 @@ def main_slovar(request):
                 data['slovar']['main'].append(main_syn)
         except:
             messages.error(request, f'Слово "{text}" не найдено!')
-    return render(request, 'slovar/main_slovar.html', data)
+    return render(request, 'slovar/index.html', data)

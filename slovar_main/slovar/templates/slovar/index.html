@@ -1,10 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Синоним & Антоним</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'slovar/styles/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slovar/styles/media.css' %}">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
     <link
@@ -18,7 +21,7 @@
     <header>
       <nav class="container">
         <div class="nav-top">
-          <img class="nav-logo" src="" alt="Logo" />
+          <h5 class="nav-logo">Синоним & Антоним</h5>
           <div class="nav-right">
             <div class="nav-right__link">
               <a href="#">Главная</a>
@@ -26,11 +29,13 @@
             </div>
             <div class="nav-right__search">
               <input type="text" placeholder="Введите слово..." />
-              <img src="/img/search.svg" alt="" />
+              <!-- <img src="/img/search.svg" alt="" /> -->
+              <img src="{% static 'slovar/img/search.svg' %}" alt="" />
             </div>
           </div>
           <div class="burger-menu">
-            <img src="./img/burger.svg" alt="" />
+            <!-- <img src="./img/burger.svg" alt="" /> -->
+            <img src="{% static 'slovar/img/burger.svg' %}" alt="" />
           </div>
         </div>
         <div class="nav-search__adp">
@@ -86,7 +91,8 @@
     </main>
     <footer>
       <div class="footer-nav container">
-        <img src="" alt="Logo" />
+        <!-- <img src="" alt="Logo" /> -->
+        <h6 class='footer-h6'>Синоним & Антоним</h6>
         <div class="footer-nav__link">
           <a href="#">Главная</a>
           <a href="#">О проекте</a>
@@ -95,5 +101,6 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./main.js"></script>
+    <script src="{% static 'slovar/scripts/main.js' %}"></script>
   </body>
 </html>

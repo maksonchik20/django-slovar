@@ -137,12 +137,16 @@ main {
 
 footer {
   background: #333333;
-  padding: 58px 0;
+  padding: 45px 0;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   display: block;
+}
+
+.footer-h6 {
+  color: white;
 }
 
 .footer-nav {
