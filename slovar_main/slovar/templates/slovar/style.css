@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  font-family: "Roboto";
+  font-style: normal;
+  min-height: 100vh;
+  position: relative;
+  display: block;
+}
+
+/* header */
+
+header {
+  border-bottom: 1px solid #a0a0a0;
+}
+
+nav {
+}
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.nav-right {
+  display: flex;
+}
+
+.nav-right__link {
+  padding-right: 128px;
+  align-self: center;
+}
+
+.nav-right__link a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #808080;
+  padding-right: 16px;
+}
+
+.nav-right__link a:hover {
+  color: #333333;
+}
+
+.nav-right__link a:active {
+  color: #333333;
+}
+
+.nav-right__linka:last-child {
+  padding-right: 0;
+}
+
+.nav-right__search input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #a0a0a0;
+  width: 387px;
+  height: 48px;
+  border: 1px solid #0671e0;
+  border-radius: 120px;
+  padding-left: 24px;
+}
+
+.nav-right__search img,
+.nav-search__adp img {
+  position: relative;
+  right: 50px;
+  bottom: 1px;
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-search__adp {
+  display: none;
+}
+
+.nav-search__adp input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #a0a0a0;
+  width: 387px;
+  height: 48px;
+  border: 1px solid #0671e0;
+  border-radius: 120px;
+  padding-left: 24px;
+}
+
+/* description */
+
+main {
+  padding: 60px 0;
+  height: 100%;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  color: #333333;
+  max-width: 712px;
+  margin: 0;
+  padding-bottom: 24px;
+}
+
+.description-text {
+  padding-left: 0;
+}
+
+.description-text li {
+  max-width: 667px;
+  list-style-type: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #808080;
+  padding-bottom: 20px;
+}
+
+.description-text li:last-child {
+  padding-bottom: 0;
+}
+
+/* footer */
+
+footer {
+  background: #333333;
+  padding: 58px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-nav__link a {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  padding-right: 16px;
+  text-decoration: none;
+}
+
+.footer-nav__link a:hover {
+  color: white;
+}
+
+.footer-nav__link a:last-child {
+  padding-right: 0;
+}
+
+/* бургер меню */
+
+.burger-menu__block {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: #f7f7f7;
+  left: 0;
+  top: 74px;
+  border-top: 1px solid #a0a0a0;
+}
+
+.burger-menu__block-link {
+  padding-top: 60px;
+}
+.burger-menu__block-link a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #808080;
+  padding-right: 16px;
+  display: block;
+  padding-bottom: 16px;
+}
+
+.burger-menu__block-link a:hover {
+  color: #333333;
+}
+
+.burger-menu__block-link a:active {
+  color: #333333;
+}
+
+.burger-menu__block-link a:last-child {
+  padding-right: 0;
+}
