@@ -6,42 +6,35 @@
 
 
 {% block body %}
-    {% if method == 'GET' %}  
-        <form action="{% url 'main_slovar' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" name="text">
-            <input type="submit">
+        <form action="{% url 'main_slovar' %}" method="GET" class='form-search'>
+            <input type="text" name="text" class="inp-search-text" placeholder="Введите слово">
+            <input type="submit" class="btn-submit-search">
         </form>
-    {% elif method == 'POST' %}
-        <br>
-        <br>
 
             {% if slovar.main %}
+                <div class="info_text">
+                    <strong>Слово:</strong> {{slovar.text}}
 
-                <strong>Слово:</strong> {{slovar.text}}
+                    <br>
+                    <br>
 
-                <br>
-                <br>
-
-                <strong>Синонимы: </strong>
-                <ul>
-                    {% for el in slovar.main %}
-                        <li>
-                            {{ el.text }}
-                        </li>
-                        
-                        {% for syn_el in el.syn %}
-                            <li>
-                                {{ syn_el }}
+                    <strong>Синонимы: </strong>
+                    <ul>
+                        {% for el in slovar.main %}
+                            <li class="info_text_syn">
+                                {{ el.text }}
                             </li>
-                        {% endfor %}
                             
-                    {% endfor %}
-                </ul>
-            {% else %}
-                Слово "{{slovar.text}}" не найдено
+                            {% for syn_el in el.syn %}
+                                <li class="info_text_syn">
+                                    {{ syn_el }}
+                                </li>
+                            {% endfor %}
+                                
+                        {% endfor %}
+                    </ul>
+                </div>
             {% endif %}
-    {% endif %}
 
 {% endblock body %}
     
