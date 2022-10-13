@@ -6,6 +6,9 @@
     padding: 40px 0;
     position: relative;
   }
+  .description-text{
+    height: auto;
+  }
 }
 
 @media (max-width: 992px) {
