@@ -41,6 +41,9 @@ def main_slovar(request):
     print(data)
     return render(request, 'slovar/index.html', data)
 
+def render_project(request):
+    return render(request, 'slovar/project.html')
+
 # API
 
 #Получение данных
