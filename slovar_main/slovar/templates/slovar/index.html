@@ -99,27 +99,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      const header = new Headers({ "Access-Control-Allow-Origin": "http://localhost:8000" });
-        // const data = canvas.toDataURL('image/png');
-        const data = 'gjagsdjgaj'
-        console.log(data)
-        fetch(
-          "http://localhost:8000/send_img/"
-          , {
-            method: "post",
-            mode: 'no-cors',
-            headers: { "Access-Control-Allow-Origin": "*" },
-            //make sure to serialize your JSON body
-            body: JSON.stringify({
-              data: data
-            })
-          })
-          .then( (response) => {
-            console.log('All good')
-          });
-        // photo.setAttribute('src', data);
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./main.js"></script>
     <script src="{% static 'slovar/scripts/main.js' %}"></script>

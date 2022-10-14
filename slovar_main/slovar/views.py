@@ -6,7 +6,6 @@ import requests
 # from PIL import Image
 # from io import BytesIO
 # import base64
-from .models import ImageTest
 from django.http import HttpResponse
 
 def main_slovar(request):
