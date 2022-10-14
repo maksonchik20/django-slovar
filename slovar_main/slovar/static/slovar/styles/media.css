@@ -2,12 +2,25 @@
   .nav-right__link {
     padding-right: 60px;
   }
-  footer {
+  .project-footer {
     padding: 40px 0;
     position: relative;
   }
-  .description-text{
+  .description-text {
     height: auto;
+  }
+  .analysis-conclusion {
+    font-size: 36px;
+  }
+  .analysis-conclusion__block-synonyms p,
+  .analysis-conclusion__block-antonyms p,
+  .analysis-conclusion__block-morphemicanalysis p {
+    font-size: 22px;
+  }
+  .analysis-conclusion__block-synonyms__example li,
+  .analysis-conclusion__block-antonyms__example li,
+  .analysis-conclusion__block-morphemicanalysis__example li {
+    font-size: 17px;
   }
 }
 
@@ -36,6 +49,17 @@
   nav {
     height: 137px;
   }
+  .analysis-conclusion__block {
+    display: block;
+  }
+  .analysis-conclusion__block-synonyms__example li,
+  .analysis-conclusion__block-antonyms__example li,
+  .analysis-conclusion__block-morphemicanalysis__example li {
+    list-style-type: none;
+  }
+  .analysis-conclusion__block__example {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 600px) {
@@ -53,10 +77,23 @@
   .nav-search__adp input {
     width: 300px;
   }
-  .footer-nav{
+  .footer-nav {
     display: block;
   }
-  .footer-nav__link{
+  .footer-nav__link {
     padding-top: 24px;
+  }
+  .analysis-conclusion {
+    font-size: 24px;
+  }
+  .analysis-conclusion__block-synonyms p,
+  .analysis-conclusion__block-antonyms p,
+  .analysis-conclusion__block-morphemicanalysis p {
+    font-size: 20px;
+  }
+  .analysis-conclusion__block-synonyms__example li,
+  .analysis-conclusion__block-antonyms__example li,
+  .analysis-conclusion__block-morphemicanalysis__example li {
+    font-size: 16px;
   }
 }
