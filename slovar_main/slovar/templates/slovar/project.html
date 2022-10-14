@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'slovar/styles/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slovar/styles/media.css' %}">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,15 +30,18 @@
             <div class="nav-right__search">
               <input type="text" placeholder="Введите слово..." />
               <img src="/img/search.svg" alt="" />
+              <img src="{% static 'slovar/img/search.svg' %}" alt="" />
             </div>
           </div>
           <div class="burger-menu">
             <img src="./img/burger.svg" alt="" />
+            <img src="{% static 'slovar/img/burger.svg' %}" alt="" />
           </div>
         </div>
         <div class="nav-search__adp">
           <input type="text" placeholder="Введите слово..." />
           <img src="/img/search.svg" alt="" />
+          <img src="{% static 'slovar/img/search.svg' %}" alt="" />
         </div>
         <div class="burger-menu__block">
           <div class="container">
@@ -95,5 +101,6 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./main.js"></script>
+    <script src="{% static 'slovar/scripts/main.js' %}"></script>
   </body>
 </html>

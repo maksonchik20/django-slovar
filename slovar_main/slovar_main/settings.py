@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from corsheaders.defaults import default_headers
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,12 +27,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'slovar'
-]
+    'slovar',
 
+    'corsheaders'
+]
+# from corsheaders.middleware.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -108,10 +112,28 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files')
-MEDIA_URL = '/files/'
+MEDIA_URL = 'files/'
 
 YANDEX_API_KEY_SLOVAR = 'dict.1.1.20220929T092056Z.a6a62db75b6bbf6c.56834440da1d773ed20079dbce4bcf3a7e868d0a'
 
+#CORS settings
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     'http://127.0.0.1:8000',
+#     'http://localhost:8000'
+# )
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000/',
+    'http://127.0.0.1:8000/',
+    'http://127.0.0.1:8000/send_img/',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:8000/send_img',
+]
+
+# CORS_ALLOW_HEADERS = default_headers + (
+#     'Access-Control-Allow-Origin',
+# )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
