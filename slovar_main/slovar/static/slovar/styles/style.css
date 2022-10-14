@@ -134,20 +134,69 @@ main {
   padding-bottom: 0;
 }
 
+/* description */
+
+.analysis{
+  height: 100%;
+}
+
+.description {
+  padding-top: 60px;
+}
+
+.analysis-conclusion {
+  margin: 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 130%;
+  color: #333333;
+  padding-bottom: 32px;
+}
+
+.analysis-conclusion__block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.analysis-conclusion__block-synonyms p,
+.analysis-conclusion__block-antonyms p,
+.analysis-conclusion__block-morphemicanalysis p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #333333;
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+.analysis-conclusion__block-synonyms__example li,
+.analysis-conclusion__block-antonyms__example li,
+.analysis-conclusion__block-morphemicanalysis__example li {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+  color: #0671e0;
+}
+
 /* footer */
 
-footer {
+footer{
   background: #333333;
-  padding: 45px 0;
-  position: absolute;
+  padding: 58px 0;
   bottom: 0;
   left: 0;
   width: 100%;
   display: block;
 }
 
-.footer-h6 {
-  color: white;
+.main-footer,.project-footer{
+  position: absolute;
 }
 
 .footer-nav {
