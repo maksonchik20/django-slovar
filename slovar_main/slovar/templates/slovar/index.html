@@ -1,13 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Синоним & Антоним</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'slovar/styles/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'slovar/styles/media.css' %}">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
     <link
@@ -21,21 +18,19 @@
     <header>
       <nav class="container">
         <div class="nav-top">
-          <h5 class="nav-logo">Синоним & Антоним</h5>
+          <img class="nav-logo" src="" alt="Logo" />
           <div class="nav-right">
             <div class="nav-right__link">
-               <a href="./index.html">Главная</a>
-               <a href="./project.html">О проекте</a>
+              <a href="./index.html">Главная</a>
+              <a href="./project.html">О проекте</a>
             </div>
             <div class="nav-right__search">
               <input type="text" placeholder="Введите слово..." />
-              <!-- <img src="/img/search.svg" alt="" /> -->
-              <img src="{% static 'slovar/img/search.svg' %}" alt="" />
+              <img src="/img/search.svg" alt="" />
             </div>
           </div>
           <div class="burger-menu">
-            <!-- <img src="./img/burger.svg" alt="" /> -->
-            <img src="{% static 'slovar/img/burger.svg' %}" alt="" />
+            <img src="./img/burger.svg" alt="" />
           </div>
         </div>
         <div class="nav-search__adp">
@@ -53,46 +48,39 @@
       </nav>
     </header>
     <main>
-      <section class="description container">
-        <h1 class="heading">
-          Морфемный разбор онлайн, разбор слов по составу, подбор синонимов,
-          антонимов
-        </h1>
-        <ul class="description-text">
-          <li>
-            Морфемный разбор слова – это собирание единого пазла из частей,
-            которые это слово составляют. Процесс, знакомый всем со школьной
-            скамьи. В основе – знание частей слова и способ словообразования.
-          </li>
-          <li>
-            21 век цифровой индустрии диктует свои правила, теперь при
-            затруднении с разбором прибегают к словарям морфемных разборов
-            онлайн.
-          </li>
-          <li>
-            На нашем сайте вы найдете варианты самых востребованных и
-            авторитетных лексических словарей морфемных разборов, которые
-            помогут понять любое сложное или совсем просторечное, принятое в
-            обиходе слово. На сайте сконцентрирована справочная информация,
-            которая раскрывает способы словообразования, приводятся примеры.
-          </li>
-          <li>
-            Сегодня в словаре есть 100 000 морфемных разборов слов в начальной
-            форме. Этого вполне достаточно, чтобы, зная инфинитив, единственное
-            число, мужской род, именительный падеж, определить морфемы в разных
-            склонениях, спряжениях, родах и числах.
-          </li>
-          <li>
-            Информация чрезвычайно полезна для подготовки домашних заданий или
-            просто любознательных от природы людей.
-          </li>
-        </ul>
+      <section class="analysis container">
+        <h1 class="analysis-conclusion">Разбор слова «Привет»</h1>
+        <div class="analysis-conclusion__block">
+          <div class="analysis-conclusion__block-synonyms">
+            <p>Синонимы</p>
+            <ul
+              class="analysis-conclusion__block__example analysis-conclusion__block-synonyms__example"
+            >
+              <li>Здравствуйте, Добрый день</li>
+            </ul>
+          </div>
+          <div class="analysis-conclusion__block-antonyms">
+            <p>Антонимы</p>
+            <ul
+              class="analysis-conclusion__block__example analysis-conclusion__block-antonyms__example"
+            >
+              <li>Здравствуйте, Добрый день</li>
+            </ul>
+          </div>
+          <div class="analysis-conclusion__block-morphemicanalysis">
+            <p>Морфемный разбор</p>
+            <ul
+              class="analysis-conclusion__block__example analysis-conclusion__block-morphemicanalysis__example"
+            >
+              <li>Здравствуйте, Добрый день</li>
+            </ul>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="main-footer">
       <div class="footer-nav container">
-        <!-- <img src="" alt="Logo" /> -->
-        <h6 class='footer-h6'>Синоним & Антоним</h6>
+        <img src="" alt="Logo" />
         <div class="footer-nav__link">
            <a href="./index.html">Главная</a>
            <a href="./project.html">О проекте</a>
@@ -101,6 +89,5 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./main.js"></script>
-    <script src="{% static 'slovar/scripts/main.js' %}"></script>
   </body>
 </html>
