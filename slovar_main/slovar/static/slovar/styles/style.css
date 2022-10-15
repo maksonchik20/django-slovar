@@ -158,6 +158,18 @@ main {
 .analysis-conclusion__block {
   display: flex;
   justify-content: space-between;
+  overflow: scroll;
+  height: 500px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  position: relative;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 .analysis-conclusion__block-synonyms p,
