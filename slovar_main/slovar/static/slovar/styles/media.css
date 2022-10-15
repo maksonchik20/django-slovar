@@ -2,9 +2,12 @@
   .nav-right__link {
     padding-right: 60px;
   }
-  .project-footer {
+  .project-footer{
     padding: 40px 0;
     position: relative;
+  }
+  .main-footer{
+    padding: 40px 0;
   }
   .description-text {
     height: auto;
@@ -60,6 +63,13 @@
   .analysis-conclusion__block__example {
     padding-left: 0;
   }
+  .analysis-conclusion__block{
+    overflow: scroll;
+    height: 500px;
+  }
+  .analysis{
+    min-height: calc(100vh - 30px);
+  }
 }
 
 @media (max-width: 600px) {
@@ -95,5 +105,8 @@
   .analysis-conclusion__block-antonyms__example li,
   .analysis-conclusion__block-morphemicanalysis__example li {
     font-size: 16px;
+  }
+  .analysis{
+    min-height: calc(100vh + 20px);
   }
 }
