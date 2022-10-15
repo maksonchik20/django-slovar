@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from django.http import HttpResponse
 from fake_useragent import UserAgent
+from urllib.request import getproxies
 
 def main_slovar(request):
     data = {}
@@ -46,36 +47,41 @@ def render_project(request):
 
 #Получение данных
 def get_data_for_word(request, word:str) -> json:
-    data = {'slovar': []}
+    data = {'slovar': {'syn': []}}
     # Получение синонимов
     url = f'https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key={YANDEX_API_KEY_SLOVAR}&lang=ru-ru&text={word}'
     res = requests.get(url=url)
     try:
         res = json.loads(res.content.decode('utf-8'))['def'][0]
         for i in res['tr']:
-            all_syn = {'syn' : []}
-            all_syn['syn'].append(i['text'])
+            data['slovar']['syn'].append(i['text'])
             try:
                 for j in i['syn']:
-                    all_syn['syn'].append(j['text'])
+                    data['slovar']['syn'].append(j['text'])
             except KeyError:
                 pass
-            data['slovar'].append(all_syn)
     except IndexError:
-        data =  {'slovar': []}
+        data =  {'slovar': {'syn': []}}
     
     # Получение антонимов
-    url = f'https://sinonim.org/a/{word}'
-    # user_agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.62"
-    responce = requests.get(url, headers={"User_agent": UserAgent().chrome}).text
+    # url = f'https://sinonim.org/a/{word}'
+    url = f'https://synonyms.su/antonyms/m/{word}'
+    headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        "User_agent": UserAgent().chrome,
+        'referer': 'https://yandex.ru/',
+        }
+    antonims = []
+    responce = requests.get(url, headers=headers, proxies=getproxies()).text
     html = BeautifulSoup(responce, "lxml")
-    print(html)
-    info_good_or_error = html.find('div', class_ = 'onlywords')
-    print(info_good_or_error)
-    tbody = html.find('tbody')
-
+    try:
+        table_tr = html.find('table', class_='synonyms-table').find('tbody').findAll('tr')
+        for tr in table_tr:
+            antonims.append(tr.findAll('td')[1].find('a').text)
+    except:
+        pass
+    data['slovar']['antonims'] = antonims
     return HttpResponse(HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json; encoding=utf-8"))
-    # return JsonResponse(data)
         
 
 # def get_and_save_img(request):
