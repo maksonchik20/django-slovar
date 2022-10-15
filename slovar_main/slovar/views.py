@@ -3,10 +3,9 @@ from slovar_main.settings import YANDEX_API_KEY_SLOVAR
 import json
 from django.contrib import messages
 import requests
-# from PIL import Image
-# from io import BytesIO
-# import base64
+from bs4 import BeautifulSoup
 from django.http import HttpResponse
+from fake_useragent import UserAgent
 
 def main_slovar(request):
     data = {}
@@ -38,7 +37,6 @@ def main_slovar(request):
                 data['slovar']['main'].append(main_syn)
         except:
             messages.error(request, f'Слово "{text}" не найдено!')
-    print(data)
     return render(request, 'slovar/index.html', data)
 
 def render_project(request):
@@ -48,26 +46,38 @@ def render_project(request):
 
 #Получение данных
 def get_data_for_word(request, word:str) -> json:
-    data = {'slovar': {}}
-    
+    data = {'slovar': []}
+    # Получение синонимов
     url = f'https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key={YANDEX_API_KEY_SLOVAR}&lang=ru-ru&text={word}'
     res = requests.get(url=url)
     try:
         res = json.loads(res.content.decode('utf-8'))['def'][0]
-        data['slovar'] = []
         for i in res['tr']:
-            main_syn = {'text': i['text'], 'syn': []}
+            all_syn = {'syn' : []}
+            all_syn['syn'].append(i['text'])
             try:
                 for j in i['syn']:
-                    main_syn['syn'].append(j['text'])
+                    all_syn['syn'].append(j['text'])
             except KeyError:
                 pass
-            data['slovar'].append(main_syn)
+            data['slovar'].append(all_syn)
     except IndexError:
         data =  {'slovar': []}
-    print(data)
-    return render(request, 'slovar/index.html', data)
+    
+    # Получение антонимов
+    url = f'https://sinonim.org/a/{word}'
+    # user_agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.62"
+    responce = requests.get(url, headers={"User_agent": UserAgent().chrome}).text
+    html = BeautifulSoup(responce, "lxml")
+    print(html)
+    info_good_or_error = html.find('div', class_ = 'onlywords')
+    print(info_good_or_error)
+    tbody = html.find('tbody')
+
+    return HttpResponse(HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json; encoding=utf-8"))
+    # return JsonResponse(data)
         
+
 # def get_and_save_img(request):
 #     if request.method == 'POST':
 #         img_base64 = json.loads(request.body.decode('utf-8'))['data']
