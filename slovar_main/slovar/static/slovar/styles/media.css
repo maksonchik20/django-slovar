@@ -32,7 +32,7 @@
     display: none;
   }
   .burger-menu {
-    display: block;
+    display: block !important;
   }
   .heading {
     font-size: 24px;

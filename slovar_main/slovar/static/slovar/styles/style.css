@@ -75,6 +75,7 @@ nav {
   position: relative;
   right: 50px;
   bottom: 1px;
+  cursor: pointer;
 }
 
 .burger-menu {

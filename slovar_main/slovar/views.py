@@ -64,8 +64,7 @@ def get_data_for_word(request, word:str) -> json:
         data =  {'slovar': {'syn': []}}
     
     # Получение антонимов
-    # url = f'https://sinonim.org/a/{word}'
-    url = f'https://synonyms.su/antonyms/m/{word}'
+    url = f'https://synonyms.su/antonyms/m/{word}/'
     headers = {
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         "User_agent": UserAgent().chrome,
@@ -81,6 +80,24 @@ def get_data_for_word(request, word:str) -> json:
     except:
         pass
     data['slovar']['antonims'] = antonims
+
+    # Получение данных о морфемном разборе
+    morfems = {'wordComposition': []}
+    url = f'https://morphemeonline.ru/С/{word.lower()}'
+    responce = requests.get(url, headers=headers, proxies=getproxies()).content
+    html = BeautifulSoup(responce, "lxml")
+    # print(html)
+    try:
+        morf = html.find('main', class_ = 'col-md-9').find('p')
+        if 'Часть речи' in morf.text:
+            morfems['speech'] = morf.find('br').next_element.text.split()[2]
+        for el in morf.findAll('span', class_ = 'marker'):
+            morfems['wordComposition'].append(f'{el.text}{el.next_element.next_element.text.replace(",", "")}')
+    except Exception as _ex:
+        print('ошибка', _ex)
+
+    data['slovar']['morfems'] = morfems
+
     return HttpResponse(HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json; encoding=utf-8"))
         
 
